@@ -10,9 +10,9 @@ connection.once('open', async () => {
   // Delete the collections if they exist
   let userCheck = await connection.db.listCollections({ name: 'users' }).toArray();
   if (userCheck.length) {
-    await connection.dropCollection('user');
+    await connection.dropCollection('users');
   }
-
+ 
   let thoughtsCheck = await connection.db.listCollections({ name: 'thoughts' }).toArray();
   if (thoughtsCheck.length) {
     await connection.dropCollection('thoughts');
@@ -22,12 +22,13 @@ connection.once('open', async () => {
   const users = [];
 
   // Loop 50 times -- add users to the users array
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 10; i++) {
     // Get some random friend and thought objects using helper functions
     const friends = getRandomFriends();
     const thoughts = getRandomThought(5, users);
 
     const userInfo = getRandomUser();
+ 
 
     users.push({
       username: userInfo.username,
@@ -38,12 +39,15 @@ connection.once('open', async () => {
   }
 
   // Insert users into the 'users' collection
-  const createdUsers = await User.insertMany(users);
+  const createdUsers = await user.insertMany(users);
 
   // Loop through created users and add thoughts to each user
   for (const user of createdUsers) {
+  
     const userThoughts = getRandomThought(5, users);
-    await Thought.insertMany(userThoughts);
+  console.log(userThoughts)
+    await thought.insertMany(userThoughts);
+    
   }
 
   console.log('Seed data inserted successfully');

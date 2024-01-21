@@ -1,79 +1,78 @@
 const userData = [
-    'aaran' , 'aaran@email.com',
-    'aaren' , 'aaren@email.com',
-    'aarez' , 'aarez@email.com',
-    'aarman' , 'aarman@email.com',
-    'aaron' , 'aaron@email.com',
-    'aaron-james' , 'aaron-james@email.com',
-    'aarron' , 'aarron@email.com',
-    'aaryan' , 'aaryan@email.com',
-    'aaryn' , 'aaryn@email.com',
-    'aayan' , 'aayan@email.com',
-    'aazaan' , 'aazaan@email.com',
-    'abaan' , 'abaan@email.com',
-    'abbas' , 'abbas@email.com',
-    'abdallah' , 'abdallah@email.com',
-    'abdalroof' , 'abdalroof@email.com',
-    'abdihakim' , 'abdihakim@email.com',
-    'abdirahman' , 'abdirahman@email.com',
-    'abdisalam' , 'abdisalam@email.com',
-    'abdul' , 'abdul@email.com',
-    'abdul-aziz' , 'abdul-aziz@email.com',
-    'abdulbasir' , 'abdulbasir@email.com',
-    'abdulkadir' , 'abdulkadir@email.com',
-    'abdulkarem' , 'abdulkarem@email.com',
-    'smith' , 'smith@email.com',
-    'jones' , 'jones@email.com',
-    'coollastname' , 'coollastname@email.com',
-    'enter_name_here' , 'enter_name_here@email.com',
-    'ze' , 'ze@email.com',
-    'zechariah' , 'zechariah@email.com',
-    'zeek' , 'zeek@email.com',
-    'zeeshan' , 'zeeshan@email.com',
-    'zeid' , 'zeid@email.com',
-    'zein' , 'zein@email.com',
-    'zen' , 'zen@email.com',
-    'zendel' , 'zendel@email.com',
-    'zenith' , 'zenith@email.com',
-    'zennon' , 'zennon@email.com',
-    'zeph' , 'zeph@email.com',
-    'zerah' , 'zerah@email.com',
-    'zhen' , 'zhen@email.com',
-    'zhi' , 'zhi@email.com',
-    'zhong' , 'zhong@email.com',
-    'zhuo' , 'zhuo@email.com',
-    'zi' , 'zi@email.com',
-    'zidane' , 'zidane@email.com',
-    'zijie' , 'zijie@email.com',
-    'zinedine' , 'zinedine@email.com',
-    'zion' , 'zion@email.com',
-    'zishan' , 'zishan@email.com',
-    'ziya' , 'ziya@email.com',
-    'ziyaan' , 'ziyaan@email.com',
-    'zohaib' , 'zohaib@email.com',
-    'zohair' , 'zohair@email.com',
-    'zoubaeir' , 'zoubaeir@email.com',
-    'zubair' , 'zubair@email.com',
-    'zubayr' , 'zubayr@email.com',
-    'zuriel' , 'zuriel@email.com',
-    'xander' , 'xander@email.com',
-    'jared' , 'jared@email.com',
-    'courtney' , 'courtney@email.com',
-    'gillian' , 'gillian@email.com',
-    'clark' , 'clark@email.com',
-    'jared2' , 'jared2@email.com',
-    'grace' , 'grace@email.com',
-    'kelsey' , 'kelsey@email.com',
-    'tamar' , 'tamar@email.com',
-    'alex' , 'alex@email.com',
-    'mark' , 'mark@email.com',
-    'tamar2' , 'tamar2@email.com',
-    'farish' , 'farish@email.com',
-    'sarah' , 'sarah@email.com',
-    'nathaniel' , 'nathaniel@email.com',
-    'parker' , 'parker@email.com'
-
-  ];
+  { username: 'aaran', email: 'aaran@email.com' },
+  { username: 'aaren', email: 'aaren@email.com' },
+  { username: 'aarez', email: 'aarez@email.com' },
+  { username: 'aarman', email: 'aarman@email.com' },
+  { username: 'aaron', email: 'aaron@email.com' },
+  { username: 'aaron-james', email: 'aaron-james@email.com' },
+  { username: 'aarron', email: 'aarron@email.com' },
+  { username: 'aaryan', email: 'aaryan@email.com' },
+  { username: 'aaryn', email: 'aaryn@email.com' },
+  { username: 'aayan', email: 'aayan@email.com' },
+  { username: 'aazaan', email: 'aazaan@email.com' },
+  { username: 'abaan', email: 'abaan@email.com' },
+  { username: 'abbas', email: 'abbas@email.com' },
+  { username: 'abdallah', email: 'abdallah@email.com' },
+  { username: 'abdalroof', email: 'abdalroof@email.com' },
+  { username: 'abdihakim', email: 'abdihakim@email.com' },
+  { username: 'abdirahman', email: 'abdirahman@email.com' },
+  { username: 'abdisalam', email: 'abdisalam@email.com' },
+  { username: 'abdul', email: 'abdul@email.com' },
+  { username: 'abdul-aziz', email: 'abdul-aziz@email.com' },
+  { username: 'abdulbasir', email: 'abdulbasir@email.com' },
+  { username: 'abdulkadir', email: 'abdulkadir@email.com' },
+  { username: 'abdulkarem', email: 'abdulkarem@email.com' },
+  { username: 'smith', email: 'smith@email.com' },
+  { username: 'jones', email: 'jones@email.com' },
+  { username: 'coollastname', email: 'coollastname@email.com' },
+  { username: 'enter_name_here', email: 'enter_name_here@email.com' },
+  { username: 'ze', email: 'ze@email.com' },
+  { username: 'zechariah', email: 'zechariah@email.com' },
+  { username: 'zeek', email: 'zeek@email.com' },
+  { username: 'zeeshan', email: 'zeeshan@email.com' },
+  { username: 'zeid', email: 'zeid@email.com' },
+  { username: 'zein', email: 'zein@email.com' },
+  { username: 'zen', email: 'zen@email.com' },
+  { username: 'zendel', email: 'zendel@email.com' },
+  { username: 'zenith', email: 'zenith@email.com' },
+  { username: 'zennon', email: 'zennon@email.com' },
+  { username: 'zeph', email: 'zeph@email.com' },
+  { username: 'zerah', email: 'zerah@email.com' },
+  { username: 'zhen', email: 'zhen@email.com' },
+  { username: 'zhi', email: 'zhi@email.com' },
+  { username: 'zhong', email: 'zhong@email.com' },
+  { username: 'zhuo', email: 'zhuo@email.com' },
+  { username: 'zi', email: 'zi@email.com' },
+  { username: 'zidane', email: 'zidane@email.com' },
+  { username: 'zijie', email: 'zijie@email.com' },
+  { username: 'zinedine', email: 'zinedine@email.com' },
+  { username: 'zion', email: 'zion@email.com' },
+  { username: 'zishan', email: 'zishan@email.com' },
+  { username: 'ziya', email: 'ziya@email.com' },
+  { username: 'ziyaan', email: 'ziyaan@email.com' },
+  { username: 'zohaib', email: 'zohaib@email.com' },
+  { username: 'zohair', email: 'zohair@email.com' },
+  { username: 'zoubaeir', email: 'zoubaeir@email.com' },
+  { username: 'zubair', email: 'zubair@email.com' },
+  { username: 'zubayr', email: 'zubayr@email.com' },
+  { username: 'zuriel', email: 'zuriel@email.com' },
+  { username: 'xander', email: 'xander@email.com' },
+  { username: 'jared', email: 'jared@email.com' },
+  { username: 'courtney', email: 'courtney@email.com' },
+  { username: 'gillian', email: 'gillian@email.com' },
+  { username: 'clark', email: 'clark@email.com' },
+  { username: 'jared2', email: 'jared2@email.com' },
+  { username: 'grace', email: 'grace@email.com' },
+  { username: 'kelsey', email: 'kelsey@email.com' },
+  { username: 'tamar', email: 'tamar@email.com' },
+  { username: 'alex', email: 'alex@email.com' },
+  { username: 'mark', email: 'mark@email.com' },
+  { username: 'tamar2', email: 'tamar2@email.com' },
+  { username: 'farish', email: 'farish@email.com' },
+  { username: 'sarah', email: 'sarah@email.com' },
+  { username: 'nathaniel', email: 'nathaniel@email.com' },
+  { username: 'parker', email: 'parker@email.com' }
+];
 
   const randomThoughts = [
     'Life is a journey that must be traveled no matter how bad the roads and accommodations.',
@@ -103,14 +102,17 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random full user name
 const getRandomUser = () => {
-    const randomUserData = getRandomArrItem(userData);
-    const [username, email] = randomUserData.split(' , ');
-    return { username, email };
-  };
+  const randomUserData = getRandomArrItem(userData);
+
+  
+  const { username, email } = randomUserData;
+  
+  return { username, email };
+};
 
   // Function to generate random friends
   const getRandomFriends = () => {
-    const numFriends = Math.floor(Math.random() * 10) + 1; // Random number of friends (1 to 10)
+    const numFriends = Math.floor(Math.random() * 4) + 1; // Random number of friends (1 to 10)
     const friends = [];
   
     for (let i = 0; i < numFriends; i++) {
@@ -129,12 +131,14 @@ const getRandomUser = () => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        thoughtName: getRandomArrItem(randomThoughts),
+        userName: Math.random(),
+        thoughtText: getRandomArrItem(randomThoughts),
         
       });
     }
+  
     return results;
   };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUser, getRandomFriends, getRandomThought };
+module.exports = { userData, getRandomUser, getRandomFriends, getRandomThought };
