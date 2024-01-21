@@ -125,7 +125,7 @@ const getRandomUser = () => {
     return friends;
   };
 
-  const getRandomThoughts = (int) => {
+  const getRandomThought = (int) => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
@@ -137,4 +137,4 @@ const getRandomUser = () => {
   };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomUser, getRandomFriends, getRandomThoughts };
+module.exports = { getRandomUser, getRandomFriends, getRandomThought };
