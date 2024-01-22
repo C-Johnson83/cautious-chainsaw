@@ -132,9 +132,10 @@ const getRandomUser = () => {
   const getRandomThought = (int) => {
     const results = [];
     for (let i = 0; i < int; i++) {
+      const nameNumber = Math.random();
       results.push({
         _id: new Types.ObjectId(), 
-        userName: Math.random(),
+        userName: Math.floor(nameNumber*100000),
         thoughtText: getRandomArrItem(randomThoughts),
         
       });
@@ -144,4 +145,4 @@ const getRandomUser = () => {
   };
 
 // Export the functions for use in seed.js
-module.exports = { userData, getRandomUser, getRandomFriends, getRandomThought };
+module.exports = {getRandomUser, getRandomFriends, getRandomThought };

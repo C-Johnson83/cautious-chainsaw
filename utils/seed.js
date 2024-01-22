@@ -29,13 +29,13 @@ connection.once('open', async () => {
 
     const userInfo = getRandomUser();
 
-    console.log('Random generated thoughts\n', thoughts);
+    // console.log('Random generated thoughts\n', thoughts);
 
     const userThoughts = thoughts.map(thought => ({
       _id: thought._id,userName: thought.userName,thoughtText: thought.thoughtText,
     }));
-    
-    console.log('Re mapped thoughts\n', userThoughts);
+
+    // console.log('Re mapped thoughts\n', userThoughts);
     users.push({
       username: userInfo.username,
       email: userInfo.email,
@@ -43,7 +43,7 @@ connection.once('open', async () => {
       friends: friends.map(friend => friend._id), // Add friend IDs to the user's friends array
     });
   }
-
+console.log('-------\n',users,'\n-------')
   // Insert users into the 'users' collection
   const createdUsers = await user.insertMany(users);
 
