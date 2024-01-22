@@ -1,3 +1,5 @@
+const { Types } = require('mongoose');
+
 const userData = [
   { username: 'aaran', email: 'aaran@email.com' },
   { username: 'aaren', email: 'aaren@email.com' },
@@ -131,6 +133,7 @@ const getRandomUser = () => {
     const results = [];
     for (let i = 0; i < int; i++) {
       results.push({
+        _id: new Types.ObjectId(), 
         userName: Math.random(),
         thoughtText: getRandomArrItem(randomThoughts),
         

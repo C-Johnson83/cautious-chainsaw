@@ -25,15 +25,21 @@ connection.once('open', async () => {
   for (let i = 0; i < 10; i++) {
     // Get some random friend and thought objects using helper functions
     const friends = getRandomFriends();
-    const thoughts = getRandomThought(5, users);
+    const thoughts = getRandomThought(5);
 
     const userInfo = getRandomUser();
  
+    console.log(thoughts);
 
+   
     users.push({
       username: userInfo.username,
       email: userInfo.email,
-      thoughts: thoughts.map(thought => thought._id), // Add thought IDs to the user's thoughts array
+      thoughts: userThoughts = thoughts.map(thought => ({
+          thoughtText: thought.thoughtText,
+        _id: thought._id,
+        userName: thought.userName,
+      })), // Add thought objects to the user's thoughts array
       friends: friends.map(friend => friend._id), // Add friend IDs to the user's friends array
     });
   }
@@ -45,7 +51,7 @@ connection.once('open', async () => {
   for (const user of createdUsers) {
   
     const userThoughts = getRandomThought(5, users);
-  console.log(userThoughts)
+
     await thought.insertMany(userThoughts);
     
   }
