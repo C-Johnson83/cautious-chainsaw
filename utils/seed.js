@@ -12,7 +12,7 @@ connection.once('open', async () => {
   if (userCheck.length) {
     await connection.dropCollection('users');
   }
- 
+
   let thoughtsCheck = await connection.db.listCollections({ name: 'thoughts' }).toArray();
   if (thoughtsCheck.length) {
     await connection.dropCollection('thoughts');
@@ -25,21 +25,21 @@ connection.once('open', async () => {
   for (let i = 0; i < 10; i++) {
     // Get some random friend and thought objects using helper functions
     const friends = getRandomFriends();
-    const thoughts = getRandomThought(5);
+    const thoughts = getRandomThought(3);
 
     const userInfo = getRandomUser();
- 
-    console.log(thoughts);
 
-   
+    console.log('Random generated thoughts\n', thoughts);
+
+    const userThoughts = thoughts.map(thought => ({
+      _id: thought._id,userName: thought.userName,thoughtText: thought.thoughtText,
+    }));
+    
+    console.log('Re mapped thoughts\n', userThoughts);
     users.push({
       username: userInfo.username,
       email: userInfo.email,
-      thoughts: userThoughts = thoughts.map(thought => ({
-          thoughtText: thought.thoughtText,
-        _id: thought._id,
-        userName: thought.userName,
-      })), // Add thought objects to the user's thoughts array
+      thoughts: userThoughts, 
       friends: friends.map(friend => friend._id), // Add friend IDs to the user's friends array
     });
   }
@@ -49,11 +49,11 @@ connection.once('open', async () => {
 
   // Loop through created users and add thoughts to each user
   for (const user of createdUsers) {
-  
-    const userThoughts = getRandomThought(5, users);
+
+    const userThoughts = getRandomThought(5);
 
     await thought.insertMany(userThoughts);
-    
+
   }
 
   console.log('Seed data inserted successfully');
