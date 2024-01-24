@@ -5,7 +5,7 @@ module.exports = {
   // Handles the request to get all thoughts
   getAllThoughts: async (req, res) => {
     try {
-      const thoughts = await Thought.find();
+      const thoughts = await thought.find();
       res.json(thoughts);
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });

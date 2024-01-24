@@ -4,11 +4,12 @@ const { user, thought } = require('../models');
 const userController = {
   // Handles the request to get all users
   getAllUsers: async (req, res) => {
+    select ( "-__v")
     try {
-      const users = await user.find();
+      const users = await user.find()//.populate('thoughts');//.populate('friends');
       res.json(users);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -25,19 +26,27 @@ const userController = {
   // Handles the request to get a specific user by ID
   getSingleUser: async (req, res) => {
     try {
-      const user = await user.findById(req.params.userId);
-      if (!user) {
+      const userById = await user.findOne({_id: req.params.userId});
+      console.log(userById)
+      if (!userById) {
         res.status(404).json({ error: 'User not found' });
         return;
       }
-      res.json(user);
+      res.json(userById);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message});
     }
   },
+
   deleteUser: async (req, res) => {
     try {
-   
+         const delUserById = await user.findOne({_id: req.params.userId});
+      console.log(delUserById)
+      if (!delUserById) {
+        res.status(404).json({ error: 'User not found' });
+        return;
+      }
+      res.json(delUserById);
      
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
