@@ -4,9 +4,9 @@ const { user, thought } = require('../models');
 const userController = {
   // Handles the request to get all users
   getAllUsers: async (req, res) => {
-    select ( "-__v")
+    
     try {
-      const users = await user.find()//.populate('thoughts');//.populate('friends');
+      const users = await user.find();
       res.json(users);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -26,7 +26,9 @@ const userController = {
   // Handles the request to get a specific user by ID
   getSingleUser: async (req, res) => {
     try {
-      const userById = await user.findOne({_id: req.params.userId});
+      const userById = await user.findOne({_id: req.params.userId})
+    // .populate('thoughts')
+        .select ( "-__v");
       console.log(userById)
       if (!userById) {
         res.status(404).json({ error: 'User not found' });

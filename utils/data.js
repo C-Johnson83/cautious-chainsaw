@@ -114,18 +114,22 @@ const getRandomUser = () => {
 
   // Function to generate random friends
   const getRandomFriends = () => {
-    const numFriends = Math.floor(Math.random() * 4) + 1; // Random number of friends (1 to 10)
+    const numFriends = Math.floor(Math.random() * 10) + 1; // Random number of friends (1 to 10)
     const friends = [];
   
     for (let i = 0; i < numFriends; i++) {
       const randomUser = getRandomUser();
-  
+ 
       // Avoid adding duplicate friends
-      if (!friends.some(friend => friend.email === randomUser.email)) {
-        friends.push(randomUser);
-      }
+      // if (!friends.some(friend => friend.email === randomUser.email)) {
+        friends.push({
+          username: randomUser.username,
+          _id: new Types.ObjectId(),
+          email: randomUser.email
+        });
+      // }
     }
-  
+ 
     return friends;
   };
 
