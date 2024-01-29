@@ -18,7 +18,7 @@ module.exports = {
     try {
       const thoughtById = await thought.findOne({ _id: req.params.thoughtId })
         .select("-__v");
-      console.log(thoughtById)
+    
       if (!thoughtById) {
         res.status(404).json({ error: 'thought not found' });
         return;
@@ -29,7 +29,7 @@ module.exports = {
     }
   },
 
-
+///////////////////////////////////////////////////////////////////////////////
   createThought: async (req, res) => {
     try {
 
@@ -53,7 +53,7 @@ module.exports = {
     }
   },
 
-
+///////////////////////////////////////////////////////////////////////////////
   updateThought: async (req, res) => {
     try {
 
@@ -97,7 +97,7 @@ module.exports = {
     }
   },
 
-
+///////////////////////////////////////////////////////////////////////////////
   deleteReaction: async (req, res) => {
     try {
 

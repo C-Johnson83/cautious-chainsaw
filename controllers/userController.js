@@ -18,7 +18,7 @@ const userController = {
       const userById = await user.findOne({ _id: req.params.userId })
         .populate('thoughts').populate('friends').
         select("-__v");
-      console.log(userById)
+    
       if (!userById) {
         res.status(404).json({ error: 'User not found' });
         return;
@@ -38,6 +38,7 @@ const userController = {
       res.status(400).json({ error: 'Bad Request' });
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
   updateUser: async (req, res) => {
     try {
       const updateUser = await user.findOneAndUpdate(
@@ -52,7 +53,7 @@ const userController = {
         });
       }
       res.json("User updated!");
-      console.log(res)
+     
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -62,7 +63,7 @@ const userController = {
   deleteUser: async (req, res) => {
     try {
       const delUserById = await user.findOneAndDelete({ _id: req.params.userId });
-      console.log(delUserById)
+      
       if (!delUserById) {
         res.status(404).json({ error: 'User not found' });
         return;
