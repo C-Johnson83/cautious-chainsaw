@@ -1,13 +1,29 @@
-const { ObjectId } = require('mongoose').Types;
 const { user, thought } = require('../models');
 
 const userController = {
   // Handles the request to get all users
   getAllUsers: async (req, res) => {
-    
+
     try {
-      const users = await user.find();
+      const users = await user.find().populate('thoughts');
       res.json(users);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
+  // Handles the request to get a specific user by ID
+  getSingleUser: async (req, res) => {
+    try {
+      const userById = await user.findOne({ _id: req.params.userId })
+        .populate('thoughts').populate('friends').
+        select("-__v");
+      console.log(userById)
+      if (!userById) {
+        res.status(404).json({ error: 'User not found' });
+        return;
+      }
+      res.json(userById);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -22,50 +38,71 @@ const userController = {
       res.status(400).json({ error: 'Bad Request' });
     }
   },
-
-  // Handles the request to get a specific user by ID
-  getSingleUser: async (req, res) => {
+  updateUser: async (req, res) => {
     try {
-      const userById = await user.findOne({_id: req.params.userId})
-    // .populate('thoughts')
-        .select ( "-__v");
-      console.log(userById)
-      if (!userById) {
-        res.status(404).json({ error: 'User not found' });
-        return;
+      const user = await User.findOneAndUpdate(
+        { _id: req.body.userId },
+        { $addToSet: req.body },
+        { new: true }
+      );
+
+      if (!user) {
+        return res.status(404).json({
+          message: "No user found",
+        });
       }
-      res.json(userById);
-    } catch (error) {
-      res.status(500).json({ error: error.message});
+
+      res.json("User updated!");
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
     }
   },
 
   deleteUser: async (req, res) => {
     try {
-         const delUserById = await user.findOne({_id: req.params.userId});
+      const delUserById = await user.findOneAndDelete({ _id: req.params.userId });
       console.log(delUserById)
       if (!delUserById) {
         res.status(404).json({ error: 'User not found' });
         return;
       }
       res.json(delUserById);
-     
+
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },
+
   addFriend: async (req, res) => {
     try {
-   
-     
+      const newFriend = await user.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { runValidators: true, new: true }
+      );
+      if (!newFriend) {
+        return res.status(404).json({ message: "No User found" });
+      }
+
+      res.json(user);
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },
+
   removeFriend: async (req, res) => {
     try {
-   
-     
+      const noFriend = await user.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: req.params.friendId } },
+        { runValidators: true, new: true }
+      );
+      if (!noFriend) {
+        return res.status(404).json({ message: "No User found" });
+      }
+
+      res.json(user);
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
