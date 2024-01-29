@@ -32,19 +32,19 @@ module.exports = {
 
   createThought: async (req, res) => {
     try {
-      console.log("Request Body:", req.body);
 
       const createdThought = await thought.create(req.body);
       console.log("created thought", createdThought)
-
+      console.log('body', req.body)
       const newThought = await user.findOneAndUpdate(
         { _id: req.body.userId },
-        { $push: { thoughts: createdThought._id } },
+        { $addToSet: { thoughts: createdThought._id } },
         { runValidators: true, new: true }
       );
+      console.log('last chance', newThought);
 
       if (!newThought) {
-        return res.status(404).json({ error:error.message +" No User found" });
+        return res.status(404).json({ error: error.message + " No User found" });
       }
 
       res.json(newThought);
@@ -65,10 +65,10 @@ module.exports = {
 
   deleteThought: async (req, res) => {
     try {
-      const delThoughtById = await user.findOne({ _id: req.params.userId });
-     
+      const delThoughtById = await thought.findOneAndDelete({ _id: req.params.thoughtId });
+
       if (!delThoughtById) {
-        res.status(404).json({ error: 'User not found' });
+        res.status(404).json({ error: 'thought not found' });
         return;
       }
       res.json(delThoughtById);
