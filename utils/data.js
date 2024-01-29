@@ -47,7 +47,7 @@ const getUser = (userData) => {
   userData.forEach(({ username, email }) => {
     usersData.push({ username, email });
   });
-
+  console.table(usersData);
   return usersData;
 };
 

@@ -5,7 +5,7 @@ const {getUser, userData} = require('./data');
 connection.on('error', (err) => err);
 
 connection.once('open', async () => {
-  console.log('----------------------------------------------------------------\nConnected to the Database!');
+  console.log('---------------------------------------------------\nConnected to the Database!');
 
 
   // Delete the users collections if it exists
@@ -23,6 +23,10 @@ connection.once('open', async () => {
   const users = getUser(userData);
   await user.insertMany(users);
   
-  console.log('----------------------------------------------------------------\n"Data collections have been cleared"\n"Seed data has been added successfully"\n"Ready to input new user data in JSON format"\n----------------------------------------------------------------');
+  console.log('---------------------------------------------------\n'+
+  '|     "Data collections have been cleared"        |\n'+
+  '|   "User data has been successfully seeded"      |\n'+
+  '|  "Ready to input new user data in JSON format"  |\n'+
+  '---------------------------------------------------');
   process.exit(0);
 });
