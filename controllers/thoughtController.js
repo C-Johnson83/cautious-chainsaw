@@ -33,18 +33,19 @@ module.exports = {
   createThought: async (req, res) => {
     try {
 
-      const createdThought = await thought.create(req.body);
+      const createdThought = await thought.create(req.body); // thought gets created here no matter if a user is found
       console.log("created thought", createdThought)
       console.log('body', req.body)
+
       const newThought = await user.findOneAndUpdate(
         { _id: req.body.userId },
         { $addToSet: { thoughts: createdThought._id } },
         { runValidators: true, new: true }
-      );
-      console.log('last chance', newThought);
+        )
+      console.log('New Data', newThought); // comes out Null
 
       if (!newThought) {
-        return res.status(404).json({ error: error.message + " No User found" });
+        return res.status(404).json({ error: " No User found" });
       }
 
       res.json(newThought);
