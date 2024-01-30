@@ -11,6 +11,7 @@ const userController = {
       res.status(500).json({ error: error.message });
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
 
   // Handles the request to get a specific user by ID
   getSingleUser: async (req, res) => {
@@ -28,6 +29,7 @@ const userController = {
       res.status(500).json({ error: error.message });
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
 
   // Handles the request to create a new user
   createUser: async (req, res) => {
@@ -43,7 +45,7 @@ const userController = {
     try {
       const updateUser = await user.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: req.body },
+        { $set: req.body },
         { runValidators: true, new: true }
       );
 
@@ -59,6 +61,7 @@ const userController = {
       res.status(500).json(err);
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
 
   deleteUser: async (req, res) => {
     try {
@@ -74,6 +77,7 @@ const userController = {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
 
   addFriend: async (req, res) => {
     try {
@@ -91,6 +95,7 @@ const userController = {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },
+  ///////////////////////////////////////////////////////////////////////////
 
   removeFriend: async (req, res) => {
     try {
