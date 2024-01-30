@@ -29,7 +29,6 @@ module.exports = {
     }
   },
 
-///////////////////////////////////////////////////////////////////////////////
   createThought: async (req, res) => {
     try {
 
@@ -45,7 +44,7 @@ module.exports = {
       console.log('New Data', newThought); // comes out Null
 
       if (!newThought) {
-        return res.status(404).json({ error: " No User found" });
+        return res.status(404).json({ error: " No Thought found" });
       }
 
       res.json(newThought);
@@ -57,7 +56,16 @@ module.exports = {
 ///////////////////////////////////////////////////////////////////////////////
   updateThought: async (req, res) => {
     try {
+      const updateThought = await thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: req.body},
+        { runValidators: true, new: true }
+        )
+      console.log('New Data', updateThought); // comes out Null
 
+      if (!updateThought) {
+        return res.status(404).json({ error: " No Thought found" });
+      }
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -69,7 +77,7 @@ module.exports = {
       const delThoughtById = await thought.findOneAndDelete({ _id: req.params.thoughtId });
 
       if (!delThoughtById) {
-        res.status(404).json({ error: 'thought not found' });
+        res.status(404).json({ error: 'Thought Not Found' });
         return;
       }
       res.json(delThoughtById);
@@ -89,7 +97,7 @@ module.exports = {
       );
 
       if (!newReaction) {
-        return res.status(404).json({ message: "No User found" });
+        return res.status(404).json({ message: "No Reaction found" });
       }
 
       res.json(thought);
@@ -101,7 +109,14 @@ module.exports = {
 ///////////////////////////////////////////////////////////////////////////////
   deleteReaction: async (req, res) => {
     try {
-
+      const delReaction = await thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { runValidators: true, new: true }
+      )
+      if (!delReaction) {
+        return res.status(404).json({ message: "No Reaction found" });
+      }
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
