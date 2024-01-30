@@ -58,10 +58,9 @@ module.exports = {
     try {
       const updateThought = await thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: req.body},
+        { $set: req.body},
         { runValidators: true, new: true }
-        )
-      console.log('New Data', updateThought); // comes out Null
+      )
 
       if (!updateThought) {
         return res.status(404).json({ error: " No Thought found" });
@@ -109,7 +108,7 @@ module.exports = {
 ///////////////////////////////////////////////////////////////////////////////
   deleteReaction: async (req, res) => {
     try {
-      const delReaction = await thought.findOneAndUpdate(
+      const delReaction = await thought.findOneAndDelete(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
