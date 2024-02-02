@@ -60,13 +60,14 @@ module.exports = {
         { _id: req.params.thoughtId },
         { $set: req.body},
         { runValidators: true, new: true }
-      )
+      );
 
       if (!updateThought) {
-        return res.status(404).json({ error: " No Thought found" });
+        return res.status(404).json({ message: " No Thought found" });
       }
+      res.json("Thought Has Been Updated")
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error });
     }
   },
 
@@ -108,14 +109,15 @@ module.exports = {
 ///////////////////////////////////////////////////////////////////////////////
   deleteReaction: async (req, res) => {
     try {
-      const delReaction = await thought.findOneAndDelete(
+      const delReaction = await thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { $pull: { reactions: { _id: req.params.reactionId } } },
       { runValidators: true, new: true }
-      )
+      );
       if (!delReaction) {
         return res.status(404).json({ message: "No Reaction found" });
       }
+      res.json("User Has Been Deleted");
     } catch (error) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
