@@ -107,21 +107,24 @@ module.exports = {
   },
 
 ///////////////////////////////////////////////////////////////////////////////
-  deleteReaction: async (req, res) => {
-    try {
-      const delReaction = await thought.findOneAndUpdate(
+deleteReaction: async (req, res) => {
+  try {
+    const delReaction = await thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { _id: req.params.reactionId } } },
       { runValidators: true, new: true }
-      );
-      if (!delReaction) {
-        return res.status(404).json({ message: "No Reaction found" });
-      }
-      res.json("User Has Been Deleted");
-    } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+    );
+
+    if (!delReaction) {
+      return res.status(404).json({ message: "No Reaction found" });
     }
+
+    res.json({ message: "Reaction has been deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
   }
+}
+
 
 };
 
