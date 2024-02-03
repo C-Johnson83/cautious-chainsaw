@@ -38,7 +38,7 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
 ## Installation and Usage
-Must have a mysql account to use database  
+Must have MongoDB and Node installed    
 To install the cautious-chainsaw, follow these steps:
 
 1. Clone the repository to your local machine:
@@ -50,7 +50,7 @@ To install the cautious-chainsaw, follow these steps:
 3. Install the required dependencies using npm:  
     ```bash
     npm i  
-4. Seed the data (load the data into the database) if desired. It is not required to use the database:
+4. Seed the data (load the data into the database) if desired. It is not required to use the app:
     ```bash
     npm run seed  
 14. Run the following command to start the app
