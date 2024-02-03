@@ -3,14 +3,16 @@ Repository for module 18  - NoSQL Challenge: Social Network API
 
 ## Description
 ### Introduction
-MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data.  
-This app will use several of the technologies that social networking platforms use in their full-stack applications.  
-Because the foundation of these applications is data, it’s important to understand how to build and structure the API first.
+MongoDB stands out as a preferred choice for numerous social networks, prized for its adept handling of large datasets and adaptability to unstructured data.  
+In the world of social networking platforms, the amalgamation of MongoDB with various technologies is integral to constructing robust full-stack applications.  
+This application is poised to leverage these technologies to craft an efficient and scalable solution.
 
 ### Objective
-This challenge is to build an API for a social network web application where users can share their thoughts,  
-react to friends’ thoughts, and create a friend list.  
-The app will use Express.js for routing, a MongoDB database, and the Mongoose ODM
+The primary goal of this challenge is to develop a sophisticated API for a social network web application.  
+This platform aims to facilitate users in sharing their thoughts, expressing reactions to friends' thoughts, and establishing a friend list.  
+At its core, the application will harness the power of Express.js for seamless routing, employ a MongoDB database for data storage,  
+and integrate the Mongoose Object Data Modeling (ODM) library for enhanced interaction with the database.   
+Building a well-structured API lays the foundation for a dynamic and responsive social networking experience.
 
 ## Table of Contents
 - [User Story](#user-story)
@@ -78,5 +80,5 @@ https://opensource.org/licenses/MIT
 The video demo showcases how to display the data using Insomnia, but there are many alternatives.
 
 ### Demo
-
+https://drive.google.com/file/d/1n582889AYBMENYICzN6dN6F8j2Q-PHCC/view
 
