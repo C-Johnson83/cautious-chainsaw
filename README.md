@@ -55,10 +55,10 @@ To install the cautious-chainsaw, follow these steps:
 4. Seed the data (load the data into the database) if desired. It is not required to use the app:
     ```bash
     npm run seed  
-14. Run the following command to start the app
+5. Run the following command to start the app
     ```bash
     npm start   
-15. Now you can view the data in an api viewer such as Insomnia, Postman, or Apidog
+6. Now you can view the data in an api viewer such as Insomnia, Postman, or Apidog
  
 ## Features
 - User Management:  
